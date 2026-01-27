@@ -118,6 +118,24 @@ function blockText(text) {
   return b;
 }
 
+function blockPlainText(block) {
+  return blockText(block.text);
+}
+
+function blockWideText(block) {
+  const b = el("div", "block wide");
+  b.appendChild(el("h3", "", block.text?.heading || "Section"));
+  if (block.text?.body) b.appendChild(el("p", "", block.text.body));
+  if (block.text?.extra) b.appendChild(el("p", "", block.text.extra));
+
+  if (block.text?.bullets?.length) {
+    const ul = document.createElement("ul");
+    block.text.bullets.forEach(x => ul.appendChild(el("li", "", x)));
+    b.appendChild(ul);
+  }
+  return b;
+}
+
 /* ---------- Arrow carousel (one frame) ---------- */
 function blockArrowCarousel(block) {
   const wrap = el("div", "carousel2-wrap");
@@ -276,10 +294,6 @@ function blockCarousel(block) {
   return wrap;
 }
 
-function blockPlainText(block) {
-  return blockText(block.text);
-}
-
 function renderProject() {
   const mount = document.getElementById("projectMount");
   if (!mount || !window.PROJECTS) return;
@@ -303,7 +317,7 @@ function renderProject() {
 
   const head = el("div", "project-head");
   head.appendChild(el("h2", "", p.title));
-  head.appendChild(el("p", "one-liner", p.subtitle || ""));
+  head.appendChild(el("p", "one-liner", p.fullSubtitle || p.subtitle || ""));
 
   if (p.tags?.length) {
     const tags = el("div", "tags");
@@ -334,9 +348,9 @@ function renderProject() {
       grid.appendChild(blockArrowCarousel(b));
     } else if (b.type === "text") {
       grid.appendChild(blockPlainText(b));
+    } else if (b.type === "wide-text") {
+      grid.appendChild(blockWideText(b));
     }
-
-    
   });
 
   mount.appendChild(grid);

@@ -10,7 +10,6 @@ window.PROJECTS = [
     {
         type: "carousel-arrows",
         heading: "Build photos (multi-view)",
-        note: "Use the arrows to switch angles.",
         images: [
         { src: "assets/chromabot/cb_front.png", caption: "Front view" },
         { src: "assets/chromabot/cb_back.png", caption: "Back view" },
@@ -53,8 +52,8 @@ window.PROJECTS = [
   {
     id: "uwnrg",
     title: "UWNRG Contributions",
-    subtitle:
-      "CHIP (Conductive Hydrodynamic Ink Printer) is an additive manufacturing robot that deposits conductive, water-based nanoparticle inks to fabricate PCBs, integrated devices, wearable sensors, and printed displays",
+    subtitle: "Designed a syringe-based ink deposition mechanism for additive manufacturing.",
+    fullSubtitle: "CHIP (Conductive Hydrodynamic Ink Printer) is an additive manufacturing robot that deposits conductive, water-based nanoparticle inks to fabricate PCBs, integrated devices, wearable sensors, and printed displays",
     tags: ["Mechanical Design", "3D Modeling"],
     thumb: "assets/uwnrg/nrg_isometric.png",
     blocks: [
@@ -71,7 +70,7 @@ window.PROJECTS = [
         type: "image-text",
         image: {
           src: "assets/uwnrg/nrg_isometric.png",
-          caption: "Isometric view: ink deposition mechanism part"
+          caption: "Isometric view: ink deposition mechanism part."
         },
         text: {
           heading: "My contributions",
@@ -88,7 +87,7 @@ window.PROJECTS = [
         type: "image-text",
         image: {
           src: "assets/uwnrg/nrg_base.png",
-          caption: "Close-up: syringe base region (loading + alignment context)."
+          caption: "Close-up: syringe base region."
         },
         text: {
           heading: "Why the mechanism matters",
@@ -106,51 +105,21 @@ window.PROJECTS = [
         type: "wide-carousel",
         heading: "Motion range (load → run → fully compressed)",
         note:
-          "Scroll sideways through the three states. This shows the cartridge plate travel from loading position to full compression.",
+          "This shows the syringe plate travel from loading position to full compression.",
         images: [
           {
             src: "assets/uwnrg/nrg_start_pos.png",
-            caption: "Start / load position — lowest travel, syringe uncompressed (fully extended)."
+            caption: "Start / load position - lowest travel, syringe uncompressed (fully extended)."
           },
           {
             src: "assets/uwnrg/nrg_running.png",
-            caption: "Running position — mid travel during deposition."
+            caption: "Running position - mid travel during deposition."
           },
           {
             src: "assets/uwnrg/nrg_full_comp.png",
-            caption: "Fully compressed — cartridge plate near top (plunger fully compressed)."
+            caption: "Fully compressed - syringe plate near top (plunger fully compressed)."
           }
         ]
-      }
-    ]
-  },
-
-  //DEMOS TO ADD NEXT
-
-  {
-    id: "simrunner",
-    title: "SimRunner",
-    subtitle: "Config-driven time-step simulation engine with CSV output and replay.",
-    tags: ["C++", "CLI", "Simulation"],
-    thumb: "",
-    blocks: [
-      {
-        type: "wide-image",
-        image: { src: "", caption: "Hero: terminal output screenshot." },
-        placeholder: "HERO — SimRunner terminal screenshot (16:9)"
-      },
-      {
-        type: "image-text",
-        image: { src: "", caption: "Config file (.cfg) screenshot." },
-        placeholder: "CONFIG — .cfg screenshot (4:3)",
-        text: {
-          heading: "Short blurb",
-          body: "Runs simulations defined in external config files and writes time-series outputs for plotting and analysis.",
-          bullets: [
-            "Reads .cfg → advances in fixed time steps (dt) until t_end",
-            "Writes structured CSV + replay file for repeatable runs"
-          ]
-        }
       }
     ]
   },
@@ -164,31 +133,91 @@ window.PROJECTS = [
     blocks: [
       {
         type: "wide-image",
-        image: { src: "", caption: "Hero: clean concept graphic/slide." },
-        placeholder: "HERO — Conrad concept slide (16:9)"
+        image: { src: "assets/conrad/tdm_cad.png", caption: "Traffic Data Module (TDM): roadside sensing unit housing LiDAR sensor and processing hardware for real-time vehicle tracking." },
+        placeholder: "HERO — Lumino.net concept (16:9)"
       },
+
       {
-        type: "image-text",
-        image: { src: "", caption: "System flow diagram." },
-        placeholder: "DIAGRAM — inputs → aggregation → adaptive control (16:9 or 4:3)",
+        type: "text",
         text: {
-          heading: "Concept, diagram-first",
-          body: "Keep this page visual: communicate the system in 15 seconds with one clean flow diagram.",
+          heading: "The Problem",
+          body:
+            "Traffic congestion wastes time, increases emissions, and raises accident risk. Existing solutions such as camera-based monitoring and navigation apps either lack reliability or lack direct control over traffic signals.",
           bullets: [
-            "Inputs: roadside sensing + navigation signals",
-            "Processing: aggregate traffic state",
-            "Outputs: adaptive signal timing + routing suggestions"
+            "Fixed traffic signal timing does not adapt to real conditions",
+            "Camera systems struggle in poor weather and low-light conditions",
+            "Navigation apps redirect drivers but don't influence signal timing",
+            "No coordinated approach combining sensing + control"
+          ]
+        }
+      },
+
+      {
+        type: "wide-image",
+        image: { src: "assets/conrad/servers.png", caption: "System architecture: roadside sensors and vehicle data feed a central server that optimizes traffic signal timing in real time." },
+        placeholder: "DIAGRAM — System flow: sensing → aggregation → signal control (16:9)"
+      },
+
+      {
+        type: "text",
+        text: {
+          heading: "Why It Matters",
+          body:
+            "Current traffic management approaches lack coordination and adaptability. Lumino.net integrates traffic sensing and signal control into a closed-loop system, enabling signal timing to adapt continuously to real-time traffic conditions rather than fixed schedules.",
+          bullets: [
+            "Reduces congestion by responding to current traffic demand rather than historical averages",
+            "Improves air quality by minimizing idling and stop-and-go vehicle behavior",
+            "Enhances safety through optimized signal timing that reduces intersection conflicts",
+            "Supports data-driven planning by providing useful traffic analytics to municipalities"
+          ]
+        }
+      },
+
+      {
+        type: "text",
+        text: {
+          heading: "System Components",
+          body:
+            "Lumino.net integrates four key subsystems to measure, process, and act on traffic data.",
+          bullets: [
+            "Roadside Traffic Sensors: LiDAR units at intersections track vehicle movement reliably in all weather and lighting conditions",
+            "Vehicle Data Input: Connected vehicles send location and speed to the central server, providing redundancy if roadside sensors degrade",
+            "Central Traffic Server: Aggregates all traffic data by city, builds live traffic state, and computes optimal signal timing",
+            "Traffic Control & Navigation: Outputs timing changes to traffic control centers; companion app guides drivers on less congested routes"
+          ]
+        }
+      },
+
+      {
+        type: "text",
+        text: {
+          heading: "Feedback Control Loop",
+          body:
+            "Rather than static schedules, the system continuously adapts signal timing based on observed traffic behavior.",
+          bullets: [
+            "Measure traffic conditions at intersections via sensors and vehicle reports",
+            "Combine incoming data to build real-time traffic picture",
+            "Decide optimal signal timing to reduce congestion and improve flow",
+            "Apply timing changes through traffic control integration",
+            "Observe resulting behavior and repeat — enabling continuous improvement"
+          ]
+        }
+      },
+
+      {
+        type: "text",
+        text: {
+          heading: "Design Considerations",
+          body:
+            "Key principles that guided the system architecture.",
+          bullets: [
+            "Reliability: Dual data sources (roadside + vehicle) ensure system resilience if one input degrades",
+            "Scalability: City-level server organization reduces complexity and supports gradual expansion to new municipalities",
+            "Deployment: Minimal physical infrastructure requirements reduce installation burden on cities and speed time-to-value",
+            "Privacy: Vehicle data aggregated at city level without individual tracking"
           ]
         }
       }
     ]
-  },
-
-  {
-    id: "tuneshelf",
-    title: "TuneShelf",
-    subtitle: "Web guitar tuner (live site link).",
-    externalUrl: "https://tuneshelf.ca/",
-    thumb: "assets/tuneshelf/tuneshelf_logo.png"
   }
 ];

@@ -127,7 +127,7 @@ window.PROJECTS = [
   {
     id: "conrad",
     title: "Lumino.net (Conrad Challenge)",
-    subtitle: "City-scale intelligent traffic management concept combining sensing + navigation data.",
+    subtitle: "City-scale intelligent traffic management concept combining sensing and navigation data.",
     tags: ["Systems Design"],
     thumb: "assets/conrad/tdm_cad.png",
     blocks: [
@@ -153,12 +153,6 @@ window.PROJECTS = [
       },
 
       {
-        type: "wide-image",
-        image: { src: "assets/conrad/servers.png", caption: "System architecture: roadside sensors and vehicle data feed a central server that optimizes traffic signal timing in real time." },
-        placeholder: "DIAGRAM — System flow: sensing → aggregation → signal control (16:9)"
-      },
-
-      {
         type: "text",
         text: {
           heading: "Why It Matters",
@@ -174,6 +168,12 @@ window.PROJECTS = [
       },
 
       {
+        type: "wide-image",
+        image: { src: "assets/conrad/servers.png", caption: "System architecture: roadside sensors and vehicle data feed a central server that optimizes traffic signal timing in real time." },
+        placeholder: "DIAGRAM — System flow: sensing → aggregation → signal control (16:9)"
+      },
+
+      {
         type: "text",
         text: {
           heading: "System Components",
@@ -184,22 +184,6 @@ window.PROJECTS = [
             "Vehicle Data Input: Connected vehicles send location and speed to the central server, providing redundancy if roadside sensors degrade",
             "Central Traffic Server: Aggregates all traffic data by city, builds live traffic state, and computes optimal signal timing",
             "Traffic Control & Navigation: Outputs timing changes to traffic control centers; companion app guides drivers on less congested routes"
-          ]
-        }
-      },
-
-      {
-        type: "text",
-        text: {
-          heading: "Feedback Control Loop",
-          body:
-            "Rather than static schedules, the system continuously adapts signal timing based on observed traffic behavior.",
-          bullets: [
-            "Measure traffic conditions at intersections via sensors and vehicle reports",
-            "Combine incoming data to build real-time traffic picture",
-            "Decide optimal signal timing to reduce congestion and improve flow",
-            "Apply timing changes through traffic control integration",
-            "Observe resulting behavior and repeat — enabling continuous improvement"
           ]
         }
       },

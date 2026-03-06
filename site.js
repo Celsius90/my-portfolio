@@ -123,7 +123,7 @@ function renderHome() {
 function blockImage(image, wide, placeholderText) {
   const fig = el("figure", "media" + (wide ? " wide" : ""));
 
-  if (image?.src) {
+  if (image && image.src) {
     const img = document.createElement("img");
     img.className = "img";
     img.src = image.src;
@@ -134,7 +134,7 @@ function blockImage(image, wide, placeholderText) {
       const ph = el("div", "ph");
       ph.setAttribute("data-ph", placeholderText || "IMAGE");
       fig.appendChild(ph);
-      if (image?.caption) fig.appendChild(el("figcaption", "", image.caption));
+      if (image && image.caption) fig.appendChild(el("figcaption", "", image.caption));
     };
     fig.appendChild(img);
   } else {
@@ -143,17 +143,17 @@ function blockImage(image, wide, placeholderText) {
     fig.appendChild(ph);
   }
 
-  if (image?.caption) fig.appendChild(el("figcaption", "", image.caption));
+  if (image && image.caption) fig.appendChild(el("figcaption", "", image.caption));
   return fig;
 }
 
 function blockText(text) {
   const b = el("div", "block");
-  b.appendChild(el("h3", "", text?.heading || "Section"));
-  if (text?.body) b.appendChild(el("p", "", text.body));
-  if (text?.extra) b.appendChild(el("p", "", text.extra));
+  b.appendChild(el("h3", "", (text && text.heading) || "Section"));
+  if (text && text.body) b.appendChild(el("p", "", text.body));
+  if (text && text.extra) b.appendChild(el("p", "", text.extra));
 
-  if (text?.bullets?.length) {
+  if (text && text.bullets && text.bullets.length) {
     const ul = document.createElement("ul");
     text.bullets.forEach(x => ul.appendChild(el("li", "", x)));
     b.appendChild(ul);
@@ -167,11 +167,11 @@ function blockPlainText(block) {
 
 function blockWideText(block) {
   const b = el("div", "block wide");
-  b.appendChild(el("h3", "", block.text?.heading || "Section"));
-  if (block.text?.body) b.appendChild(el("p", "", block.text.body));
-  if (block.text?.extra) b.appendChild(el("p", "", block.text.extra));
+  b.appendChild(el("h3", "", (block.text && block.text.heading) || "Section"));
+  if (block.text && block.text.body) b.appendChild(el("p", "", block.text.body));
+  if (block.text && block.text.extra) b.appendChild(el("p", "", block.text.extra));
 
-  if (block.text?.bullets?.length) {
+  if (block.text && block.text.bullets && block.text.bullets.length) {
     const ul = document.createElement("ul");
     block.text.bullets.forEach(x => ul.appendChild(el("li", "", x)));
     b.appendChild(ul);
@@ -199,7 +199,7 @@ function blockArrowCarousel(block) {
   const viewport = el("div", "carousel2-viewport");
   const img = document.createElement("img");
   img.className = "carousel2-img";
-  img.alt = images[0]?.caption || "carousel image";
+  img.alt = (images[0] && images[0].caption) || "carousel image";
   img.loading = "lazy";
 
 viewport.appendChild(img);
@@ -316,7 +316,7 @@ function blockCarousel(block) {
   (block.images || []).forEach(imgData => {
     const fig = el("figure", "carousel-item");
 
-    if (imgData?.src) {
+    if (imgData && imgData.src) {
       const img = document.createElement("img");
       img.className = "img";
       img.src = imgData.src;
@@ -329,7 +329,7 @@ function blockCarousel(block) {
       fig.appendChild(ph);
     }
 
-    if (imgData?.caption) fig.appendChild(el("figcaption", "", imgData.caption));
+    if (imgData && imgData.caption) fig.appendChild(el("figcaption", "", imgData.caption));
     track.appendChild(fig);
   });
 
@@ -362,7 +362,7 @@ function renderProject() {
   head.appendChild(el("h2", "", p.title));
   head.appendChild(el("p", "one-liner", p.fullSubtitle || p.subtitle || ""));
 
-  if (p.tags?.length) {
+  if (p.tags && p.tags.length) {
     const tags = el("div", "tags");
     p.tags.forEach(t => tags.appendChild(el("span", "", t)));
     head.appendChild(tags);

@@ -3,7 +3,8 @@ window.PROJECTS = [
   {
     id: "chromabot",
     title: "Chromabot",
-    subtitle: "Autonomous sorting robot for coloring tools using hue detection and encoder-based bin positioning.",
+    languageTag: "C++",
+    subtitle: "Autonomous color-sorting robot for drawing tools using optical hue detection and encoder-based bin positioning.",
     tags: ["Robotics", "VEX IQ", "C++"],
     thumb: "assets/chromabot/cb_front.png",
     blocks: [
@@ -52,7 +53,8 @@ window.PROJECTS = [
   {
     id: "uwnrg",
     title: "UWNRG Contributions",
-    subtitle: "Designed a syringe-based ink deposition mechanism for additive manufacturing.",
+    languageTag: "C++",
+    subtitle: "Designed a syringe-based ink deposition mechanism for PCB printing using controlled stepper-driven extrusion. (currently working on firmware in C++)",
     fullSubtitle: "CHIP (Conductive Hydrodynamic Ink Printer) is an additive manufacturing robot that deposits conductive, water-based nanoparticle inks to fabricate PCBs, integrated devices, wearable sensors, and printed displays",
     tags: ["Mechanical Design", "3D Modeling"],
     thumb: "assets/uwnrg/nrg_isometric.png",
@@ -126,8 +128,8 @@ window.PROJECTS = [
 
   {
     id: "conrad",
-    title: "Lumino.net (Conrad Challenge)",
-    subtitle: "City-scale intelligent traffic management concept combining sensing and navigation data.",
+    title: "Lumino.net | The Conrad Challenge",
+    subtitle: "City-scale intelligent traffic management concept combining sensing data and routing information.",
     tags: ["Systems Design"],
     thumb: "assets/conrad/tdm_cad.png",
     blocks: [
@@ -203,5 +205,41 @@ window.PROJECTS = [
         }
       }
     ]
+  }
+];
+
+window.SOFTWARE_PROJECTS = [
+  {
+    id: "tuneshelf",
+    title: "TuneShelf",
+    languageTag: "JavaScript",
+    subtitle: "Web-based guitar tuner with real-time pitch detection using the Web Audio API. Supports custom tuning presets and interactive tuning feedback.",
+    subtitleGithubUrl: "https://github.com/Fahrenheit194/TuneShelf",
+    thumb: "assets/tuneshelf/tuneshelf_ui.png",
+    externalUrl: "https://tuneshelf.ca/"
+  },
+  {
+    id: "config-sim-runner",
+    title: "Config-Sim-Runner",
+    languageTag: "C++",
+    subtitle: "C++ physics simulation engine with configuration-driven experiments. Exports CSV data and supports deterministic replay of simulation runs.",
+    thumb: "assets/simrunner/sim_output.png",
+    externalUrl: "https://github.com/Fahrenheit194/config-sim-runner"
+  },
+  {
+    id: "blackjack-desktop",
+    title: "Blackjack Desktop",
+    languageTag: "Java",
+    subtitle: "Java Swing blackjack game implementing betting logic and dealer rules. Includes bankroll management and full round-based gameplay.",
+    thumb: "assets/blackjack/blackjack_ui.png",
+    externalUrl: "https://github.com/Fahrenheit194/BlackJack-Desktop"
+  },
+  {
+    id: "todo-cli",
+    title: "CLI To-Do List",
+    languageTag: "Python",
+    subtitle: "Command-line task manager with JSON-based persistence and multiple task lists. Supports due dates, completion tracking, and command-based navigation.",
+    thumb: "assets/todo/todo_cli.png",
+    externalUrl: "https://github.com/Fahrenheit194/to-do_cli"
   }
 ];

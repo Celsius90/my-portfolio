@@ -29,12 +29,14 @@ function renderPills(activeId) {
 }
 
 function renderHome() {
-  const grid = document.getElementById("grid");
-  if (!grid || !window.PROJECTS) return;
+  const mechGrid = document.getElementById("grid-mech");
+  const softGrid = document.getElementById("grid-soft");
+  if (!mechGrid || !softGrid || !window.PROJECTS || !window.SOFTWARE_PROJECTS) return;
 
-  grid.innerHTML = "";
+  mechGrid.innerHTML = "";
+  softGrid.innerHTML = "";
 
-  window.PROJECTS.forEach(p => {
+  function createCard(p) {
     const card = el("a", "card");
 
     if (p.externalUrl) {
@@ -66,13 +68,54 @@ function renderHome() {
     }
 
     const body = el("div", "card-body");
-    body.appendChild(el("div", "card-title", p.title));
-    body.appendChild(el("div", "card-sub", p.subtitle || ""));
+    const titleRow = el("div", "card-title-row");
+    titleRow.appendChild(el("div", "card-title", p.title));
+    if (p.languageTag) {
+      titleRow.appendChild(el("span", "card-lang-tag", p.languageTag));
+    }
+    body.appendChild(titleRow);
+
+    const subtitle = el("div", "card-sub", p.subtitle || "");
+    if (p.subtitleGithubUrl) {
+      subtitle.appendChild(document.createTextNode(" "));
+      const gh = el("span", "card-sub-link", "Github");
+      gh.setAttribute("role", "link");
+      gh.tabIndex = 0;
+      gh.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        window.open(p.subtitleGithubUrl, "_blank", "noopener,noreferrer");
+      });
+      gh.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          e.stopPropagation();
+          window.open(p.subtitleGithubUrl, "_blank", "noopener,noreferrer");
+        }
+      });
+      subtitle.appendChild(gh);
+    }
+    body.appendChild(subtitle);
 
     card.appendChild(media);
     card.appendChild(body);
-    grid.appendChild(card);
-  });
+    return card;
+  }
+
+  const mechOrder = ["uwnrg", "chromabot", "conrad"];
+  const softwareOrder = ["tuneshelf", "config-sim-runner", "todo-cli", "blackjack-desktop"];
+
+  const orderByIds = (items, order) => {
+    const rank = new Map(order.map((id, i) => [id, i]));
+    return [...items].sort((a, b) => {
+      const ai = rank.has(a.id) ? rank.get(a.id) : Number.MAX_SAFE_INTEGER;
+      const bi = rank.has(b.id) ? rank.get(b.id) : Number.MAX_SAFE_INTEGER;
+      return ai - bi;
+    });
+  };
+
+  orderByIds(window.PROJECTS, mechOrder).forEach(p => mechGrid.appendChild(createCard(p)));
+  orderByIds(window.SOFTWARE_PROJECTS, softwareOrder).forEach(p => softGrid.appendChild(createCard(p)));
 
   renderPills(null);
 }
@@ -357,6 +400,6 @@ function renderProject() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  if (document.getElementById("grid")) renderHome();
+  if (document.getElementById("grid-mech") && document.getElementById("grid-soft")) renderHome();
   if (document.getElementById("projectMount")) renderProject();
 });

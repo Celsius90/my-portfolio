@@ -203,6 +203,15 @@ a:hover{ text-decoration:underline; }
   color:var(--muted);
   line-height:1.4;
 }
+.project-head-linkline{
+  margin:0 0 12px;
+  color:var(--muted);
+  line-height:1.4;
+}
+.project-head-link{
+  color:var(--text);
+  text-decoration:underline;
+}
 .tags{
   display:flex;
   flex-wrap:wrap;

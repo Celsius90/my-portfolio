@@ -5,6 +5,9 @@ window.PROJECTS = [
     title: "Chromabot",
     languageTag: "C++",
     subtitle: "Autonomous color-sorting robot for drawing tools using optical hue detection and encoder-based bin positioning.",
+    subtitleGithubUrl: "https://github.com/Fahrenheit194/chromabot-control",
+    detailLinkLabel: "Control code",
+    detailLinkUrl: "https://github.com/Fahrenheit194/chromabot-control",
     tags: ["Robotics", "VEX IQ", "C++"],
     thumb: "assets/chromabot/cb_front.png",
     blocks: [

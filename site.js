@@ -362,6 +362,20 @@ function renderProject() {
   head.appendChild(el("h2", "", p.title));
   head.appendChild(el("p", "one-liner", p.fullSubtitle || p.subtitle || ""));
 
+  if (p.detailLinkUrl) {
+    const linkRow = el("p", "project-head-linkline");
+    const label = (p.detailLinkLabel || "Source code") + ": ";
+    linkRow.appendChild(document.createTextNode(label));
+
+    const link = el("a", "project-head-link", p.detailLinkUrl);
+    link.href = p.detailLinkUrl;
+    link.target = "_blank";
+    link.rel = "noreferrer noopener";
+    linkRow.appendChild(link);
+
+    head.appendChild(linkRow);
+  }
+
   if (p.tags && p.tags.length) {
     const tags = el("div", "tags");
     p.tags.forEach(t => tags.appendChild(el("span", "", t)));

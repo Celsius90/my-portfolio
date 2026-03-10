@@ -131,7 +131,7 @@ window.PROJECTS = [
 
   {
     id: "conrad",
-    title: "Lumino.net | The Conrad Challenge",
+    title: "Concept Overview - The Conrad Challenge Finalist Project (Lumino.net)",
     subtitle: "City-scale intelligent traffic management concept combining sensing data and routing information.",
     tags: ["Systems Design"],
     thumb: "assets/conrad/tdm_cad.png",
@@ -246,4 +246,5 @@ window.SOFTWARE_PROJECTS = [
     externalUrl: "https://github.com/Fahrenheit194/to-do_cli"
   }
 ];
+
 

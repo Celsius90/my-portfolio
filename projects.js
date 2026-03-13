@@ -56,8 +56,8 @@ window.PROJECTS = [
   {
     id: "uwnrg",
     title: "UWNRG Contributions",
-    languageTag: "C++",
-    subtitle: "Designed a syringe-based ink deposition mechanism for PCB printing using controlled stepper-driven extrusion. (currently working on firmware in C++)",
+    languageTag: "C",
+    subtitle: "Designed a syringe-based ink deposition mechanism for PCB printing using controlled stepper-driven extrusion. (currently working on firmware in C)",
     fullSubtitle: "CHIP (Conductive Hydrodynamic Ink Printer) is an additive manufacturing robot that deposits conductive, water-based nanoparticle inks to fabricate PCBs, integrated devices, wearable sensors, and printed displays",
     tags: ["Mechanical Design", "3D Modeling"],
     thumb: "assets/uwnrg/nrg_isometric.png",
@@ -246,6 +246,7 @@ window.SOFTWARE_PROJECTS = [
     externalUrl: "https://github.com/Fahrenheit194/to-do_cli"
   }
 ];
+
 
 
 

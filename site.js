@@ -39,8 +39,10 @@ function renderHome() {
   function createCard(p) {
     const card = el("a", "card");
 
-    if (p.externalUrl) {
-      card.href = p.externalUrl;
+    const cardPrimaryUrl = p.cardUrl || p.externalUrl;
+
+    if (cardPrimaryUrl) {
+      card.href = cardPrimaryUrl;
       card.target = "_blank";
       card.rel = "noreferrer";
     } else {
@@ -76,24 +78,27 @@ function renderHome() {
     body.appendChild(titleRow);
 
     const subtitle = el("div", "card-sub", p.subtitle || "");
-    if (p.subtitleGithubUrl) {
+    const subtitleLinkUrl = p.subtitleLinkUrl || p.subtitleGithubUrl;
+    if (subtitleLinkUrl) {
       subtitle.appendChild(document.createTextNode(" "));
-      const gh = el("span", "card-sub-link", "Github");
-      gh.setAttribute("role", "link");
-      gh.tabIndex = 0;
-      gh.addEventListener("click", (e) => {
+      if (p.subtitleLeadText) subtitle.appendChild(document.createTextNode(p.subtitleLeadText));
+
+      const subtitleLink = el("span", "card-sub-link", p.subtitleLinkText || "Github");
+      subtitleLink.setAttribute("role", "link");
+      subtitleLink.tabIndex = 0;
+      subtitleLink.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        window.open(p.subtitleGithubUrl, "_blank", "noopener,noreferrer");
+        window.open(subtitleLinkUrl, "_blank", "noopener,noreferrer");
       });
-      gh.addEventListener("keydown", (e) => {
+      subtitleLink.addEventListener("keydown", (e) => {
         if (e.key === "Enter" || e.key === " ") {
           e.preventDefault();
           e.stopPropagation();
-          window.open(p.subtitleGithubUrl, "_blank", "noopener,noreferrer");
+          window.open(subtitleLinkUrl, "_blank", "noopener,noreferrer");
         }
       });
-      subtitle.appendChild(gh);
+      subtitle.appendChild(subtitleLink);
     }
     body.appendChild(subtitle);
 

@@ -56,8 +56,8 @@ window.PROJECTS = [
   {
     id: "uwnrg",
     title: "UWNRG Contributions",
-    languageTag: "C",
-    subtitle: "Designed a syringe-based ink deposition mechanism for PCB printing using controlled stepper-driven extrusion. (currently working on firmware in C)",
+    languageTag: "C++",
+    subtitle: "Designed a syringe-based ink deposition mechanism for PCB printing using controlled stepper-driven extrusion. (currently working on firmware in C++)",
     fullSubtitle: "CHIP (Conductive Hydrodynamic Ink Printer) is an additive manufacturing robot that deposits conductive, water-based nanoparticle inks to fabricate PCBs, integrated devices, wearable sensors, and printed displays",
     tags: ["Mechanical Design", "3D Modeling"],
     thumb: "assets/uwnrg/nrg_isometric.png",
@@ -131,7 +131,7 @@ window.PROJECTS = [
 
   {
     id: "conrad",
-    title: "Lumino.net - Concept Overview | Conrad Challenge",
+    title: "Lumino.net | The Conrad Challenge",
     subtitle: "City-scale intelligent traffic management concept combining sensing data and routing information.",
     tags: ["Systems Design"],
     thumb: "assets/conrad/tdm_cad.png",
@@ -217,9 +217,12 @@ window.SOFTWARE_PROJECTS = [
     title: "TuneShelf",
     languageTag: "JavaScript",
     subtitle: "Web-based guitar tuner with real-time pitch detection using the Web Audio API. Supports custom tuning presets and interactive tuning feedback.",
-    subtitleGithubUrl: "https://tuneshelf.ca/",
+    cardUrl: "https://github.com/Fahrenheit194/TuneShelf",
+    subtitleLeadText: "Live Site: ",
+    subtitleLinkText: "tuneshelf.ca",
+    subtitleLinkUrl: "https://tuneshelf.ca/",
     thumb: "assets/tuneshelf/tuneshelf_ui.png",
-    externalUrl: "https://github.com/Fahrenheit194/TuneShelf"
+    externalUrl: "https://tuneshelf.ca/"
   },
   {
     id: "config-sim-runner",
@@ -246,7 +249,3 @@ window.SOFTWARE_PROJECTS = [
     externalUrl: "https://github.com/Fahrenheit194/to-do_cli"
   }
 ];
-
-
-
-

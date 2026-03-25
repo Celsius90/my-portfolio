@@ -217,9 +217,9 @@ window.SOFTWARE_PROJECTS = [
     title: "TuneShelf",
     languageTag: "JavaScript",
     subtitle: "Web-based guitar tuner with real-time pitch detection using the Web Audio API. Supports custom tuning presets and interactive tuning feedback.",
-    subtitleGithubUrl: "https://github.com/Fahrenheit194/TuneShelf",
+    subtitleGithubUrl: "https://tuneshelf.ca/",
     thumb: "assets/tuneshelf/tuneshelf_ui.png",
-    externalUrl: "https://tuneshelf.ca/"
+    externalUrl: "https://github.com/Fahrenheit194/TuneShelf"
   },
   {
     id: "config-sim-runner",

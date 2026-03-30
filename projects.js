@@ -131,7 +131,7 @@ window.PROJECTS = [
 
   {
     id: "conrad",
-    title: "Lumino.net | The Conrad Challenge",
+    title: "Lumino.net - Concept Overview | Conrad Challenge",
     subtitle: "City-scale intelligent traffic management concept combining sensing data and routing information.",
     tags: ["Systems Design"],
     thumb: "assets/conrad/tdm_cad.png",
